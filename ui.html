@@ -32,7 +32,7 @@
   .manual-item { padding: 16px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer; margin-bottom: 12px; transition: background 0.1s; display: flex; flex-direction: column; }
   .manual-item:hover { border-color: #0079C8; background: #fcfdfe; }
   .manual-item strong { font-weight: 600; }
-  .manual-item .manual-desc { font-size: 14px; }
+  .manual-item .manual-desc { font-size: 14px; margin-top: 4px; }
   
   .h-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
   .h-btn { padding: 12px; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; text-align: center; font-weight: 600; font-size: 14px; transition: filter 0.2s; position: relative; z-index: 50; }
@@ -56,7 +56,7 @@
 <div class="content-body">
   <div id="progress-container" class="hidden">
     <div class="progress-bg"><div id="progress-fill" class="progress-fill"></div><div id="progress-text" class="progress-text">0%</div></div>
-    <div id="timeout-warning" class="hidden">Taking longer than usual. Try fewer layers.</div>
+    <div id="timeout-warning" class="hidden">Taking longer than usual...</div>
     <div style="text-align:center; margin-bottom:16px;"><span class="text-link" onclick="cancelScan()">Cancel scan</span></div>
   </div>
 
@@ -91,9 +91,9 @@
         <span class="manual-desc">Text alternative for image: Add descriptive text here</span>
         <span class="wcag-link" onclick="openWCAG('https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html', event)">WCAG 1.1.1</span>
       </div>
-      <div class="manual-item" onclick="apply('Text alternative for button: Add text here')">
-        <strong>Button Alt Text</strong>
-        <span class="manual-desc">Text alternative for button: Add text here</span>
+      <div class="manual-item" onclick="apply('Text alternative for button: Add text here (describes its action)')">
+        <strong>Button alt text</strong>
+        <span class="manual-desc">Text alternative for button: Add text here (describes its action)</span>
         <span class="wcag-link" onclick="openWCAG('https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html', event)">WCAG 1.1.1</span>
       </div>
     </div>
@@ -103,7 +103,10 @@
       <div class="manual-item" onclick="apply('This icon should be hidden from assistive technologies.')">
         <strong>Decorative Icon</strong>
         <span class="manual-desc">Hide from screen readers (purely visual).</span>
-        <span class="wcag-link" onclick="openWCAG('https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html', event)">WCAG 1.1.1</span>
+      </div>
+      <div class="manual-item" onclick="apply('This image should be hidden from assistive technologies (e.g. screen readers).')">
+        <strong>Decorative image</strong>
+        <span class="manual-desc">This image should be hidden from assistive technologies (e.g. screen readers).</span>
       </div>
     </div>
 
@@ -112,22 +115,22 @@
       <div class="manual-item" onclick="apply('On click, move users to page content.')">
         <strong>Skip To Content</strong>
         <span class="manual-desc">Bypass blocks to reach main content.</span>
-        <span class="wcag-link" onclick="openWCAG('https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks.html', event)">WCAG 2.4.1</span>
       </div>
       <div class="manual-item" onclick="apply('Manage focus for modal transition.')">
         <strong>Manage Focus</strong>
         <span class="manual-desc">Handle focus order for dynamic changes.</span>
-        <span class="wcag-link" onclick="openWCAG('https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html', event)">WCAG 2.4.3</span>
       </div>
-      <div class="manual-item" onclick="apply('Link opens in a new tab.')">
-        <strong>Link Opens In New Tab</strong>
-        <span class="manual-desc">Notify user of new tab behavior.</span>
-        <span class="wcag-link" onclick="openWCAG('https://www.w3.org/WAI/WCAG21/Understanding/on-input.html', event)">WCAG 3.2.2</span>
+      <div class="manual-item" onclick="apply('Tell user that this link will open a new browser tab.')">
+        <strong>Link opens in a new tab</strong>
+        <span class="manual-desc">Tell user that this link will open a new browser tab.</span>
+      </div>
+      <div class="manual-item" onclick="apply('Tell user that this button will open a new browser tab.')">
+        <strong>Button opens in a new tab</strong>
+        <span class="manual-desc">Tell user that this button will open a new browser tab.</span>
       </div>
       <div class="manual-item" onclick="apply('Content needs to be resizable to up to 200% without impacting functionality.')">
         <strong>Check Zoom Level</strong>
         <span class="manual-desc">Ensure accessibility after browser zoom.</span>
-        <span class="wcag-link" onclick="openWCAG('https://www.w3.org/WAI/WCAG21/Understanding/resize-text.html', event)">WCAG 1.4.4</span>
       </div>
     </div>
 
@@ -136,11 +139,14 @@
       <div class="manual-item" onclick="apply('A dynamic notification must use a live region.')">
         <strong>Live Region</strong>
         <span class="manual-desc">Announce status messages automatically.</span>
-        <span class="wcag-link" onclick="openWCAG('https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html', event)">WCAG 4.1.3</span>
       </div>
-      <div class="manual-item" onclick="apply('No live announcements required for page content.')">
-        <strong>No Live Announcements</strong>
-        <span class="manual-desc">Mark content as non-announcing.</span>
+      <div class="manual-item" onclick="apply('Ensure this specific content is exposed to and read aloud by screen readers.')">
+        <strong>Screen readers must read aloud</strong>
+        <span class="manual-desc">Ensure this specific content is exposed to and read aloud by screen readers.</span>
+      </div>
+      <div class="manual-item" onclick="apply('Ensure this specific content is ignored by screen readers.')">
+        <strong>Screen readers must ignore</strong>
+        <span class="manual-desc">Ensure this specific content is ignored by screen readers.</span>
       </div>
     </div>
   </div>
