@@ -1,5 +1,5 @@
 {
-  "name": "Bupa11y Annotation Suggester",
+  "name": "Bupa11y",
   "id": "a11y-context-scanner",
   "api": "1.0.0",
   "main": "code.ts",

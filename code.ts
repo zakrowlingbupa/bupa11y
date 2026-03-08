@@ -1,4 +1,4 @@
-figma.showUI(__html__, { width: 400, height: 750, title: 'Accessibility Annotator' });
+figma.showUI(__html__, { width: 400, height: 750, title: 'Bupa11y' });
 
 let isScanning = false;
 
@@ -60,7 +60,7 @@ figma.ui.onmessage = async (msg) => {
     };
     selection.forEach(gather);
 
-    const actionWords = ["add", "edit", "change", "remove", "close", "exit", "search", "find"];
+    const actionWords = ["add", "edit", "change", "remove", "close", "exit", "search", "find", "open", "email"];
 
     for (let i = 0; i < allNodes.length; i++) {
       if (!isScanning) return;
@@ -72,10 +72,10 @@ figma.ui.onmessage = async (msg) => {
         const hasActionWord = textNodes.some(t => actionWords.some(word => t.characters.toLowerCase().includes(word)));
         if (hasActionWord) {
           suggestions.push({
-            nodeId: node.id, layerName: node.name, title: "Potential Live Region",
+            nodeId: node.id, layerName: node.name, title: "Potential live region",
             reason: "Action buttons often trigger dynamic content that needs to be announced.",
             wcag: "WCAG 4.1.3", url: "https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html",
-            options: [{ label: "Apply Live Region", text: "A dynamic notification must use a live region to announce this change." }]
+            options: [{ label: "Apply live region", text: "A dynamic notification must use a live region to announce this change." }]
           });
         }
       }
@@ -85,16 +85,16 @@ figma.ui.onmessage = async (msg) => {
           nodeId: node.id, layerName: node.name, title: "Icon detected", 
           reason: "Icons require descriptions or should be marked decorative.",
           wcag: "WCAG 1.1.1", url: "https://www.w3.org/WAI/WCAG21/Understanding/non-text-content.html",
-          options: [{ label: "Add Alt Text", text: "Text alternative for icon: Add text here" }, { label: "Mark Decorative", text: "This icon should be hidden from assistive technologies." }]
+          options: [{ label: "Add alt text", text: "Text alternative for icon: Add text here" }, { label: "Mark as decorative", text: "This icon should be hidden from assistive technologies." }]
         });
       }
       
       if (node.type === "TEXT" && node.fontSize >= 20) {
         suggestions.push({ 
-          nodeId: node.id, layerName: node.name, title: "Possible Heading", 
+          nodeId: node.id, layerName: node.name, title: "Possible heading", 
           reason: "Large text often indicates a heading structure.",
           wcag: "WCAG 1.3.1", url: "https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships.html",
-          options: [{ label: "Apply Heading Tag", text: "This text should be marked up as a heading level (H1-H6)." }]
+          options: [{ label: "Apply heading tag", text: "Heading 1-6" }]
         });
       }
       
