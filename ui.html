@@ -20,7 +20,7 @@
   .header-cat { font-weight: 600; color: #666; margin: 24px 0 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
   .section-title { font-size: 18px; font-weight: 600; margin: 16px 0 16px; color: #222; padding-top: 8px; }
   .search-input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; box-sizing: border-box; margin-bottom: 20px; font-family: inherit; }
-  .manual-item { padding: 16px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer; margin-bottom: 12px; transition: background 0.1s; display: flex; flex-direction: column; }
+  .manual-item { padding: 16px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer; margin-bottom: 12px; display: flex; flex-direction: column; }
   .manual-item:hover { border-color: #0079C8; background: #fcfdfe; }
   .manual-item strong { font-weight: 600; }
   .manual-item .manual-desc { font-size: 14px; margin-top: 4px; }
@@ -38,7 +38,7 @@
   <button class="btn-blue" onclick="run()">Scan selection for suggestions</button>
   <div id="smart-root-header" class="hidden" style="display: flex; justify-content: space-between; align-items: baseline;">
     <div id="suggestion-count-label">0 Suggestions</div>
-    <span class="text-link" onclick="clearScan()">✕ Clear All</span>
+    <span class="text-link" onclick="clearScan()">✕ Clear all</span>
   </div>
 </div>
 
@@ -55,11 +55,12 @@
   <p><small>Select any layers to add annotations from the list using Figma's native annotation feature.</small></p>
   <div class="search-bar">
   <div class="search-group">
-    <label for="annotation-search" class="search-label"><small>Filter annotations by keyword</small></label>
+    <label for="search=input" class="search-label"><small>Filter annotations by keyword</small></label>
     <input
       id="searchInput"
       class="search-input"
-      type="text"
+      name="search-input"
+      type="search"
       placeholder="e.g. live region"
       aria-describedby="results-count"
       autocomplete="off"
